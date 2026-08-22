@@ -1,0 +1,838 @@
+/* ---------- إعادة تعيين عامة ---------- */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: #f0f2f5;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ /* ---------- الهيدر ---------- */
+ .header {
+     width: 100%;
+     background: #1b74e4;
+     color: white;
+     padding: 12px 24px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+     position: sticky;
+     top: 0;
+     z-index: 100;
+ }
+
+ .header .logo {
+     font-size: 1.6rem;
+     font-weight: 700;
+     letter-spacing: 0.5px;
+ }
+
+ .header .logo i {
+     margin-left: 6px;
+ }
+
+ /* مجموعة الأزرار (يسار) */
+ .header-actions {
+     display: flex;
+     gap: 10px;
+     align-items: center;
+     margin: auto;
+     flex-wrap: wrap;
+ }
+
+ .header-actions .btn {
+     padding: 8px 18px;
+     border: none;
+     border-radius: 6px;
+     font-size: 0.95rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: background 0.2s, transform 0.1s;
+     color: white;
+ }
+.header-actions .username-info img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid 1px #2d69b3;
+}
+.header-actions .username-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 40px 0 0;
+    padding: 0 20px;
+}
+ .btn-login {
+     background: #ffffff;
+     color: #1b74e4 !important;
+ }
+
+ .btn-login:hover {
+     background: #e4e6eb;
+ }
+
+ .btn-register {
+     background: #42b72a;
+ }
+
+ .btn-register:hover {
+     background: #36a420;
+ }
+.btn-logout{
+    background-color: red;
+    margin: auto;
+}
+.btn-logout:hover{
+    background-color: rgb(116, 23, 23);
+}
+ /*//مجموعة الأزرار (يسار)//*/
+
+ /* الروابط اليمنى */
+ .header-links {
+     display: flex;
+     gap: 20px;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+ .header-links a {
+     color: white;
+     text-decoration: none;
+     font-weight: 500;
+     font-size: 1rem;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+     padding: 6px 10px;
+     border-radius: 6px;
+     transition: background 0.2s;
+ }
+
+ .header-links a:hover {
+     background: rgba(255, 255, 255, 0.15);
+ }
+
+ .header-links a i {
+     font-size: 1.1rem;
+ }
+ /*//الروابط اليمنى//*/
+ 
+ /* ---------- الحاوية الرئيسية ---------- */
+ .main-container {
+     width: 100%;
+     max-width: 700px;
+     padding: 20px 16px;
+     margin: 15px auto;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ /* ---------- بوكس المنشور ---------- */
+ .post-card {
+     background: white;
+     width: 100%;
+     border-radius: 12px;
+     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+     overflow: hidden;
+     transition: box-shadow 0.2s;
+     margin-bottom: 20px;
+ }
+
+ .post-card:hover {
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+ }
+
+ /* رأس البوكس (صورة الصفحة + الاسم) */
+ .post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e4e6eb;
+ }
+ .user-info-post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    gap: 12px;
+    cursor: pointer;
+    
+ }
+ .user-info-post .avatar {
+     width: 48px;
+     height: 48px;
+     border-radius: 50%;
+     background: #1b74e4;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: white;
+     font-size: 1.5rem;
+     font-weight: 700;
+     flex-shrink: 0;
+     overflow: hidden;
+ }
+
+ .user-info-post .avatar img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+
+ .user-info-post .page-info {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .user-info-post .page-name {
+     font-weight: 700;
+     font-size: 1.05rem;
+     color: #050505;
+ }
+
+ .user-info-post .page-name i {
+     color: #1b74e4;
+     font-size: 0.9rem;
+     margin-right: 4px;
+ }
+
+ .user-info-post .post-time {
+     font-size: 0.8rem;
+     color: #65676b;
+     display: flex;
+     align-items: center;
+     gap: 4px;
+ }
+ .edit-post{
+    display: flex;
+
+ }
+ #edit-post{
+    width: 60px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgb(224, 215, 215);
+    border: solid 1px darkgray;
+    margin-right: 15px;   
+ }
+ #edit-post:hover{
+    background-color: darkgray;
+    cursor: pointer;
+ }
+ #delete-post{
+    width: 60px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgb(232, 204, 204);
+    border: solid 1px rgb(233, 88, 88);
+    margin-right: 15px; 
+ }
+ #delete-post:hover{
+    background-color: rgb(233, 88, 88);
+    cursor: pointer;
+ }
+ /* نص المنشور */
+ .post-body {
+     padding: 14px 18px 8px 18px;
+ }
+
+ .post-body .post-text {
+     font-size: 1rem;
+     line-height: 1.6;
+     color: #1c1e21;
+     margin-bottom: 12px;
+     word-wrap: break-word;
+ }
+
+ /* صورة المنشور (تملأ المكان بدون تشوه) */
+ .post-image-wrapper {
+     width: 100%;
+     margin: 0 0 12px 0;
+     background: #f0f2f5;
+     border-radius: 8px;
+     overflow: hidden;
+     /* نسبة عرض ثابتة لجعل الصورة متناسقة 16:9 تقريباً */
+     aspect-ratio: 16 / 9;
+     /* أو يمكن استخدام height: auto مع max-height، لكن aspect-ratio أنظف */
+ }
+
+ .post-image-wrapper img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center;
+     /* 👍 هذه الخاصية تمنع التشوه وتملأ الإطار */
+     display: block;
+ }
+
+ /* تفاعلات (إعجابات - تعليقات) */
+ .post-footer {
+     padding: 6px 18px 14px 18px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-top: 1px solid #e4e6eb;
+     margin-top: 4px;
+     flex-wrap: wrap;
+     gap: 10px;
+ }
+
+ .post-stats {
+     display: flex;
+     gap: 18px;
+     color: #65676b;
+     font-size: 0.9rem;
+ }
+
+ .post-stats span {
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .post-stats i {
+     font-size: 1rem;
+ }
+
+ .post-stats .likes i {
+     color: #1b74e4;
+ }
+
+ .post-stats .comments i {
+     color: #65676b;
+ }
+
+ .post-actions {
+     display: flex;
+     gap: 12px;
+ }
+
+ .post-actions button {
+     background: none;
+     border: none;
+     padding: 6px 14px;
+     border-radius: 6px;
+     font-weight: 600;
+     font-size: 0.9rem;
+     color: #65676b;
+     cursor: pointer;
+     transition: background 0.2s;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+ }
+
+ .post-actions button:hover {
+     background: #f0f2f5;
+ }
+
+ .post-actions .like-btn i {
+     color: #1b74e4;
+ }
+ .post-actions a{
+    text-decoration: none;
+ }
+ .post-actions .comment-btn i {
+     color: #65676b;
+ }
+ /*//تفاعلات (إعجابات - تعليقات)//*/
+ /* ---------- تجاوب (Responsive) ---------- */
+ @media (max-width: 768px) {
+     .header {
+         padding: 10px 16px;
+         flex-direction: column;
+         align-items: stretch;
+         gap: 10px;
+     }
+
+     .header .logo {
+         font-size: 1.4rem;
+         text-align: center;
+     }
+
+     .header-actions,
+     .header-links {
+         justify-content: center;
+         gap: 8px;
+     }
+    .s{
+        display: flex;
+        align-items: center;
+        
+     }
+     .header-actions .btn {
+         padding: 6px 14px;
+         font-size: 0.85rem;
+     }
+
+     .header-links a {
+         font-size: 0.9rem;
+         padding: 4px 8px;
+     }
+
+     .main-container {
+         padding: 10px 12px;
+     }
+
+     .user-info-post {
+         padding: 12px 14px;
+     }
+
+     .user-info-post .avatar {
+         width: 40px;
+         height: 40px;
+         font-size: 1.2rem;
+     }
+
+     .user-info-post .page-name {
+         font-size: 0.95rem;
+     }
+
+     .post-body {
+         padding: 10px 14px 4px 14px;
+     }
+
+     .post-body .post-text {
+         font-size: 0.95rem;
+     }
+
+     .post-image-wrapper {
+         aspect-ratio: 16 / 10;
+         /* نسبة مختلفة قليلاً للشاشات الصغيرة */
+     }
+
+     .post-footer {
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 8px;
+         padding: 8px 14px 12px 14px;
+     }
+
+     .post-stats {
+         font-size: 0.85rem;
+         gap: 14px;
+     }
+
+     .post-actions {
+         width: 100%;
+         justify-content: space-around;
+     }
+
+     .post-actions button {
+         padding: 4px 10px;
+         font-size: 0.85rem;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .header .logo {
+         font-size: 1.2rem;
+     }
+
+     .header-actions .btn {
+         padding: 5px 12px;
+         font-size: 0.8rem;
+     }
+
+     .header-links a {
+         font-size: 0.8rem;
+         gap: 4px;
+     }
+
+     .user-info-post .avatar {
+         width: 36px;
+         height: 36px;
+         font-size: 1rem;
+     }
+
+     .user-info-post .page-name {
+         font-size: 0.7rem;
+     }
+
+     .post-body .post-text {
+         font-size: 0.9rem;
+     }
+
+     .post-image-wrapper {
+         aspect-ratio: 4 / 3;
+     }
+
+     .post-stats {
+         font-size: 0.8rem;
+         gap: 10px;
+     }
+
+     .post-actions button {
+         font-size: 0.8rem;
+         padding: 4px 8px;
+     }
+ }
+ /* //---------- تجاوب (Responsive) ----------// */
+
+
+ /* تحسين مظهر شريط التمرير */
+ ::-webkit-scrollbar {
+     width: 6px;
+ }
+
+ ::-webkit-scrollbar-track {
+     background: #f0f2f5;
+ }
+
+ ::-webkit-scrollbar-thumb {
+     background: #bcc0c4;
+     border-radius: 10px;
+ }
+/*//تحسين مظهر شريط التمرير //*/
+
+ /*Models*/
+
+ /* commen style for all model */
+ .modal {
+     display: none;
+     /* مخفي بالبداية */
+     position: fixed;
+     top: 0;
+     left: 0;
+
+     width: 100%;
+     height: 100%;
+
+     background-color: rgba(0, 0, 0, 0.5);
+
+     justify-content: center;
+     align-items: center;
+
+ }
+ .modal-content {
+     background: white;
+     padding: 20px;
+     width: 400px;
+     max-height: 500px;
+     border-radius: 12px;
+     position: relative;
+     top: 30px;
+     bottom: 120px;
+     margin: 0 20px;
+ }
+ .form-input input {
+     width: 100%;
+     padding: 5px;
+     border-radius: 5px;
+     border: solid 1px #e0e0e0;
+     margin-top: 6px;
+
+ }
+
+ .form-input hr {
+     margin: 10px 0;
+ }
+
+ .buttons {
+     display: flex;
+     justify-content: flex-end;
+     gap: 10px;
+ }
+ .buttons button {
+     width: 80px;
+     padding: 2px;
+     border-radius: 5px;
+     margin-top: 20px;
+     color: white;
+     border: none;
+ }
+ .comman-button{
+    background-color: blue;
+ }
+ .comman-button:hover{
+    background-color: rgb(6, 6, 98);
+    cursor: pointer;
+ }
+ .close {
+     background-color: #434141;
+ }
+
+ .close:hover {
+     background-color: #1b1919;
+     cursor: pointer;
+ }
+/*//commen style for all model//*/
+
+.form-delete h4{
+    margin-bottom: 10px;
+}
+ 
+
+
+ /*//Models//*/
+
+ /*ALART-BOX*/
+.alert{
+    position: fixed; 
+    bottom: 0; 
+    right: 0; 
+    min-width: 200px;
+    max-width: 400px;
+    max-height: 70px;
+    background-color: rgb(198, 224, 172);  
+    padding: 8px; 
+    border-radius: 4px 0 0 4px; 
+    margin: 0 0 10px 0;
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+}
+.alert p{
+    font-weight: 600;
+    font-size: 15px;
+ }
+ /*--ALART-BOX--*/
+
+/* ADD AND EDIT POST */
+.add-post button{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #1b74e4;
+    text-align: center;
+    cursor: pointer;
+}
+.add-post button i{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-post input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px #e0e0e0;
+    margin-top: 6px;
+
+}
+.form-post textarea{
+    padding: 3px 0 0 5px;
+    width: 100%;
+    resize: none;
+}
+ input[type='file']{
+    padding: 0;
+    height: 40px;
+}
+ input[type='file']:hover{
+    border: solid 2px blue;
+    cursor: pointer;
+}
+
+input[type='file']::file-selector-button{
+    height: 100%;
+    width: 30%;
+    border: solid 1px #e0e0e0;
+}
+input[type='file']::file-selector-button:hover{
+    background-color: #a19595;
+    cursor: pointer;
+}
+.form-post hr {
+    margin: 10px 0;
+}
+
+/*//ADD AND EDIT POST//*/
+
+
+/*FOUCS ON POST*/
+.username-box{
+    width: 90%;
+    margin: 0 10px 20px 0;
+    direction: ltr;
+}
+
+/*COMMENT BOX*/
+.comments-box{
+    background-color: rgb(239, 242, 242);
+    min-height: 50px;
+    padding: 10px 1px 10px 10px;
+}
+
+.comments-box .comments{
+    max-height: 400px;
+    width: 100%;
+    overflow-y: scroll
+}
+.comments .user-info{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.comments .user-info .image{
+    width: 25px;
+    height: 25px;
+    margin: 5px 0 5px 5px;
+    border: solid 1px #a19595;
+    border-radius: 50%;
+}
+.comments .user-info .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.comments .comment-info p{
+    padding: 0 10px 10px 40px;
+    font-size: small;
+    font-weight: 500;
+    max-height: 100px;
+    overflow-y: auto;      
+}
+
+
+.comments-box .add-comment{
+    position: relative;
+    bottom: 0;
+}
+
+.add-comment input{
+    width: 82%;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(111, 111, 207);
+    background-color: rgb(109, 127, 139);
+}
+.add-comment input::placeholder{
+    color: #e0e0e0;
+}
+.add-comment input:focus{
+    border: solid 2px rgb(71, 41, 165);
+    outline: none;
+    
+}
+.add-comment button{
+    width: 16%;
+    padding: 5px;
+    border: solid 1px rgb(71, 41, 165);
+    border-radius: 4px;
+    background-color: rgb(71, 41, 165);
+    color: white;
+}
+
+.add-comment button:hover{
+     background-color: #294e7c;
+     cursor: pointer;
+}
+/*//COMMENT BOX//*/
+
+/*LODER */
+.box {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.loder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 5px solid #ddd;
+    border-top: 5px solid #3498db;
+    animation: spin 0.8s linear infinite;
+    
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+/*//LODER//*/
+
+
+/*//FOUCS ON POST//*/
+footer {
+    padding: 16px;
+    color: #65676b;
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* PROFILE PAGE */
+.main-box-profile{
+    width: 100%;
+}
+.main-box-profile h2{
+    margin: 20px 5px
+}
+.box-of-profile{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    background-color: #e3e6eda3;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+
+}
+.box-of-profile .image{
+   display: flex;
+   align-items: center;
+
+}
+.box-of-profile .image img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.696);
+}
+.box-of-profile .image .info-user{
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+.box-of-profile .image .info-user p{
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.box-of-profile .count-of-post p{
+    margin: 20px 0;
+    font-size: xx-large;
+    font-family: serif;
+}
+.box-of-profile .count-of-post small{
+    font-size: small;
+    color: #65676b;
+    letter-spacing: 2px;
+}
+/*// PROFILE PAGE //*/

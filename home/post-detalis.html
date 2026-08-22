@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- import axios -->
+    <script src="../node_modules/axios/dist/axios.min.js" defer></script>
+    <!-- import script-->
+    <script src="main-logic.js" defer></script>
+    <script src="post-logic.js" defer></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images.ico" type="image/x-icon">
+    <title>تواصل - شبكة اجتماعية</title>
+</head>
+<body>
+    
+    
+    <!-- ====== الهيدر ====== -->
+    <header class="header">
+        <div class="logo">
+            <i class="fab fa-facebook"></i> تواصل
+        </div>
+        <!-- LOGIN AND REGISTER -->
+        <div class="header-actions login">
+            <button id="login-btn" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</button>
+            <button id="register-btn" class="btn btn-register"><i class="fas fa-user-plus"></i> التسجيل</button>
+        </div>
+        <!-- //LOGIN AND REGISTER// -->
+        <!-- LOGOUT -->
+        <div class="header-actions logout">
+            <div class="username-info">
+                <span id="nav-username">ali2020</span>
+                <img id="user-image" src="city.jpg" alt="">
+            </div>
+            <button onclick="logOut()" id="logout-btn" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> تسجيل
+                الخروج</button>
+        </div>
+    
+    
+        <!-- //LOGOUT// -->
+    
+        <!-- الروابط (يمين) -->
+        <div class="header-links">
+            <a href="home.html"><i class="fas fa-home"></i> الرئيسية</a>
+            <a href="profile.html"><i class="fas fa-user-circle"></i> الملف الشخصي</a>
+        </div>
+    </header>
+    <!-- ====== المحتوى الرئيسي ====== -->
+    <main class="main-container">
+
+        <div class="username-box">
+            <h2 id="userpost">ali2020 :post</h2>
+        </div>
+        <!-- ====== بوكس المنشور ====== -->
+        <div class="posts-box">
+            <article class="post-card">
+                <!-- رأس البوكس (صورة الصفحة + الاسم) -->
+            <div class="post-header">
+                <div class="user-info-post">
+            
+                    <div class="avatar">
+                        <!-- صورة وهمية للصفحة (يمكن استبدالها بأي رابط) -->
+                        <img src="user.png"/>
+                    </div>
+                    <div class="page-info">
+                        <span class="page-name">
+                            <i class="fas fa-check-circle"></i> صفحة التكنولوجيا
+                        </span>
+                        <span class="post-time">
+                            <i class="far fa-clock"></i> منذ 3 ساعات
+                        </span>
+                    </div>
+                </div>
+            </div>
+    
+                <!-- جسم المنشور (نص + صورة) -->
+                <div class="post-body">
+                    <p class="post-text">
+                        🚀 أطلقنا اليوم تحديثًا جديدًا لمنصتنا! نعمل دائمًا على تحسين تجربتك.
+                        شاركنا رأيك في التعليقات 👇
+                    </p>
+    
+                    <!-- صورة المنشور (تملأ المكان بدون تشوه) -->
+                    <div class="post-image-wrapper">
+                        <img src="city.jpg" alt="صورة المنشور" />
+                    </div>
+                </div>
+    
+                <!-- تذييل البوكس (إعجابات + تعليقات + أزرار) -->
+                <div class="post-footer">
+                    <div class="post-stats">
+                        <span class="likes">
+                            <i class="fas fa-thumbs-up"></i> 1.2 ألف
+                        </span>
+                        <span class="comments">
+                            <i class="fas fa-comment"></i> 84
+                        </span>
+                    </div>
+                    <div class="post-actions">
+                        <button class="like-btn"><i class="fas fa-thumbs-up"></i> إعجاب</button>
+                        <button class="comment-btn"><i class="fas fa-comment"></i> تعليق</button>
+                    </div>
+                </div>
+                <div class="comments-box">
+                    <div class="comments">
+                    </div>
+                    <hr>
+                    <div class="add-comment">
+                        <input  id="content-comment" type="text" placeholder="Add comment" value="" autocomplete="off">
+                        <button id="send-comment">Send</button>
+                    </div>
+                </div>
+                
+            </article>
+            
+        </div>
+       
+        <!-- يمكن إضافة المزيد من البوستات هنا، لكن حسب الطلب نكتفي بواحد -->
+    
+        <!-- ====== بوكس تسجيل الدخول ====== -->
+        <section>
+            <div class="modal" id="login-modal">
+                <div class="modal-content">
+                    <div class="form-input">
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="username" required id="username">
+                        <hr>
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="password" required id="password">
+                        <div class="buttons">
+                            <button class="close" id="close-login">Close</button>
+                            <button id="login-submit" onclick="loginBtnClicked()">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- ====== بوكس تسجيل مستخدم جديد====== -->
+        <section>
+            <div class="modal" id="register-modal">
+                <div class="modal-content">
+                    <div class="form-input">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="email" required id="email">
+                        <hr>
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Name" id="name">
+                        <hr>
+                        <label for="username-register">Username</label>
+                        <input type="text" placeholder="username" id="username-register">
+                        <hr>
+                        <label for="username-image">Put an image</label>
+                        <input type="file" placeholder="choose an image" id="username-image">
+                        <hr>
+                        <label for="password-register">Password</label>
+                        <input type="password" placeholder="password" id="password-register">
+                        <div class="buttons">
+                            <button class="close" id="close-register">Close</button>
+                            <button id="register-submit" onclick="registerBtnClick()">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ALERT -->
+        <section>
+            <div class="alert">
+                <p id="message">Sucsses login</p>
+            </div>
+        </section>
+        <!-- //ALERT// -->
+    </main>
+    <!--LODER -->
+    <div class="box">
+        <div class="loder" id="loder"></div>
+    </div>
+    <!--//LODER//-->
+    <!-- (اختياري) تذييل بسيط -->
+    <footer>
+        &copy; 2026 تواصل — شبكة اجتماعية بسيطة
+    </footer>
+</body>
+</html>
